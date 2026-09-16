@@ -1,0 +1,46 @@
+#Tugas 2 KOMPUTASI STATISTIKA
+#Nama : Chaeila Arnesia Purba
+#NIM : 3338250059
+
+# 1. Menampilkan data Sepal.length
+iris$Sepal.Length
+
+# 2. Meneybutkan tipe data tiap kolom
+sapply(iris, class)
+
+# 3. Menambah variabel baru "Turunan"
+library(dplyr)
+iris = iris %>% 
+  mutate(
+    Turunan = ifelse(Sepal.Width > 3, "Besar", "Kecil")
+  )
+head(iris)
+
+# 4. Merubah variabel "Turunan" menjadi "Sepal"
+library(dplyr)
+iris = iris %>%
+  rename( Sepal = Turunan )
+head(iris)
+
+# 5. Mengambil Sepal bernilai besar dari species Virginica
+datavirginica <- filter(iris, Sepal == "Besar" & Species == "virginica")
+print(datavirginica)
+
+# 6. Cek jumlah Species
+table(iris$Species)
+
+# 7. Mememecah data Iris menjadi 3 data frame berdasarkan species tertentu
+IrisSetosa = IrisSetosa <- iris[iris$Species == "setosa", ]
+IrisSetosa
+IrisVersicolor = IrisVersicolor <- iris[iris$Species == "versicolor", ]
+IrisVersicolor
+IrisVirginica = IrisVirginica <- iris[iris$Species == "virginica", ]
+IrisVirginica
+
+# 8. Mengurutkan data berdasarkan Sepal.Width dari setiap data frame
+IrisSetosaUrut = arrange(IrisSetosa, Sepal.Width)
+IrisSetosaUrut
+IrisVersicolorUrut = arrange(IrisVersicolor, Sepal.Width)
+IrisVersicolorUrut
+IrisVirginicaUrut = arrange(IrisVirginica, Sepal.Width)
+IrisVirginicaUrut
